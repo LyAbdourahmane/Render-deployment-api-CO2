@@ -1,0 +1,34 @@
+# Fichiers d'environnement
+.env
+.env.*
+
+# Fichiers Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtualenv
+.venv/
+venv/
+ENV/
+
+# Fichiers de logs
+*.log
+
+# Caches
+.cache/
+.pytest_cache/
+
+# Données temporaires
+*.sqlite3
+*.db
+
+# Données volumineuses
+# Ne pas ignorer models/ pour permettre le déploiement des fichiers .joblib
+data/
+
+# Configs locales
+.DS_Store
+.idea/
+.vscode/
