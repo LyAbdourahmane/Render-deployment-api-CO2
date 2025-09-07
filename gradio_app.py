@@ -1,10 +1,12 @@
 import gradio as gr
 import requests
-import os
+import os, sys
 from datetime import datetime
 
 # URL de l'API FastAPI (modifiable via variable d'environnement)
 API_BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8000")
+API_BASE_URL = API_BASE_URL.rstrip("/")  # 
+print(f"[Gradio] API_BASE_URL = {API_BASE_URL}", file=sys.stderr)
 
 def predict_co2(primary_property_type, year_built, number_of_buildings, 
                 number_of_floors, largest_property_use_type, largest_property_use_type_gfa):
