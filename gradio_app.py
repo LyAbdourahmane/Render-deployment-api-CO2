@@ -82,9 +82,8 @@ with gr.Blocks(title="Prédiction CO₂ des Bâtiments") as demo:
     with gr.Row():
         gr.Markdown(
             f"""
-### CO₂ Predictor — Démo en ligne  
-Projet ML : prédiction des émissions CO₂ (bâtiments non résidentiels Seattle)  
-**Par {AUTHOR_NAME}** • [{AUTHOR_EMAIL}](mailto:{AUTHOR_EMAIL}?subject=Candidature%20—%20CO2%20Predictor)
+### Projet ML : prédiction des émissions CO₂ (bâtiments non résidentiels Seattle)  
+**Par {AUTHOR_NAME}** — [{AUTHOR_EMAIL}](mailto:{AUTHOR_EMAIL}?subject=Candidature%20—%20CO2%20Predictor)
             """
         )
         with gr.Row():
@@ -125,7 +124,7 @@ Projet ML : prédiction des émissions CO₂ (bâtiments non résidentiels Seatt
 - **Objectif** : prédire les émissions CO₂ à partir de caractéristiques bâtiment  
 - **Persistance** : enregistrement des inputs & prédictions (PostgreSQL)  
 - **Auteur** : {AUTHOR_NAME} — [{AUTHOR_EMAIL}](mailto:{AUTHOR_EMAIL})  
-- [GitHub]({AUTHOR_GITHUB}) • [Site Web]({AUTHOR_SITE})
+- [GitHub]({AUTHOR_GITHUB}) — [Site Web]({AUTHOR_SITE})
             """
         )
 
@@ -138,10 +137,10 @@ Projet ML : prédiction des émissions CO₂ (bâtiments non résidentiels Seatt
 
 **Limites**  
 - Modèle entraîné sur des données **Seattle** : performance moindre hors distribution.  
-- Prédictions indicatives ; ne remplacent pas un audit énergétique.
+- Prédictions indicatives : ne remplacent pas un audit énergétique.
             """
         )
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 7860))
-    demo.launch(server_name="0.0.0.0", server_port=port, share=False, debug=True)
+    demo.launch(server_name="0.0.0.0", server_port=port, share=False, debug=False)
