@@ -8,6 +8,7 @@ services:
     env: python
     plan: free
     buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    # on crée les tables puis on démarre l’API
     startCommand: bash -lc "python infra/create_db.py && gunicorn -k uvicorn.workers.UvicornWorker app.API:app --bind 0.0.0.0:$PORT"
     autoDeploy: true
     healthCheckPath: /health
@@ -16,6 +17,8 @@ services:
         fromDatabase:
           name: co2-db
           property: connectionString
+      - key: ALLOWED_ORIGINS
+        value: https://co2-ui.onrender.com   # je met UI autorisée à appeler l’API
 
   - type: web
     name: co2-ui
@@ -26,4 +29,14 @@ services:
     autoDeploy: true
     envVars:
       - key: API_BASE_URL
-        value: https://co2-api.onrender.com
+        value: https://co2-api-lfr2.onrender.com
+      - key: AUTHOR_NAME
+        value: Ton Nom
+      - key: AUTHOR_EMAIL
+        value: ton.mail@exemple.com
+      - key: AUTHOR_LINKEDIN
+        value: https://www.linkedin.com/in/ton-profil/
+      - key: AUTHOR_GITHUB
+        value: https://github.com/tonuser/tonrepo
+      - key: AUTHOR_SITE
+        value: https://ton-site.com
